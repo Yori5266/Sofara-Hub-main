@@ -2,7 +2,7 @@ local HttpService = game:GetService("HttpService")
 
 -- กำหนดลิสต์ของเกมและ URL
 _G.GameList = {
-    [537413528] = "https://raw.githubusercontent.com/Yori5266/Noah-hub/refs/heads/main/Protected_7690067736633346.txt",  -- Noah Hub (Build A Boat)
+    [537413528] = "https://raw.githubusercontent.com/Yori5266/BUILD-A-BOAT-/refs/heads/main/Protected_2581229432441995.txt",  -- Sofara Hub (Build A Boat)
 }
 
 -- ตรวจสอบว่าเกมปัจจุบันอยู่ในลิสต์หรือไม่
