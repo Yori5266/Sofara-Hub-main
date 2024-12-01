@@ -1,0 +1,36 @@
+local HttpService = game:GetService("HttpService")
+
+-- กำหนดลิสต์ของเกมและ URL
+_G.GameList = {
+    [537413528] = "https://raw.githubusercontent.com/Yori5266/Noah-hub/refs/heads/main/Protected_7690067736633346.txt",  -- Noah Hub (Build A Boat)
+}
+
+-- ตรวจสอบว่าเกมปัจจุบันอยู่ในลิสต์หรือไม่
+local gameId = game.PlaceId
+
+-- พิมพ์ ID ของเกมที่กำลังเล่น
+print("Current Game ID: " .. gameId)
+
+-- เช็คว่า gameId ตรงกับที่กำหนดใน _G.GameList หรือไม่
+if _G.GameList[gameId] then
+    local scriptUrl = _G.GameList[gameId]
+    print("Loading script from URL: " .. scriptUrl)
+
+    -- โหลดสคริปต์จาก URL และรัน
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(scriptUrl))()
+    end)
+
+    -- ตรวจสอบสถานะการโหลด
+    if success then
+        print("Script loaded successfully!")
+    else
+        warn("Failed to load script: " .. tostring(result))
+    end
+else
+    -- หากไม่พบเกมในลิสต์
+    print("No script found for this game.")
+
+    -- เตะผู้เล่นออกจากเกมพร้อมแสดงข้อความ
+    game.Players.LocalPlayer:Kick("สคริปต์ยังไม่ซัพพอร์ต (Script not supported)")
+end
